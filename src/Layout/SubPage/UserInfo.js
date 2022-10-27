@@ -7,20 +7,26 @@ import axios from "axios";
 import { Slidebar } from "../../Components/Slidebar";
 
 export const UserInfo = () => {
-  const [id, setId] = useState("");
+  const [id_user, setId] = useState("");
   const [user, setUser] = useState([]);
   const history = useNavigate();
 
   const Token = JSON.parse(sessionStorage.getItem("token"));
 
   const getUser = async () => {
-    const response = await axios.get(`http://localhost:3001/users/profile/1`, {
+    try {
+      const response = await axios.get(`http://localhost:3001/users/profile/${id_user}`, {
       headers: {
         Authorization: `bearer ${Token}`,
       },
     });
     console.log(response.data.data);
-    setUser(response.data.data[0]);
+    setUser(response.data.data);
+      
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
 
   const update = async(e) => {
@@ -60,6 +66,7 @@ export const UserInfo = () => {
     getToken();
     getUser();
   }, []);
+  console.log(user)
 
   return (
     <div className="layout">
@@ -75,7 +82,7 @@ export const UserInfo = () => {
                       type="text"
                       className="input"
                       placeholder="fulan bin fulan"
-                      value={user.name}
+                      value={user[0].name}
                       required
 
                     />
@@ -88,7 +95,7 @@ export const UserInfo = () => {
                       type="email"
                       className="input"
                       placeholder="nanana@gmail.com"
-                      value={user.email}
+                      value={user[0].email}
 
                     />
                   </div>
@@ -100,7 +107,7 @@ export const UserInfo = () => {
                       type="password"
                       className="input"
                       placeholder="*********"
-                      value={user.password}
+                      value={user[0].password}
 
                     />
                   </div>
@@ -113,7 +120,7 @@ export const UserInfo = () => {
                       className="input"
                       placeholder="3792469236496294"
                       disabled
-                      value={user.nik}
+                      value={user[0].nik}
 
                     />
                   </div>
@@ -126,7 +133,7 @@ export const UserInfo = () => {
                       className="input"
                       placeholder="jl.ajain dulu"
                       required
-                      value={user.address}
+                      value={user[0].address}
 
                     />
                   </div>
@@ -139,7 +146,7 @@ export const UserInfo = () => {
                       className="input"
                       placeholder="0812 sisanya nanti dulu"
                       required
-                      value={user.phone}
+                      value={user[0].phone}
 
                     />
                   </div>
@@ -152,7 +159,7 @@ export const UserInfo = () => {
                       className="input"
                       placeholder="Admin adman Admun"
                       required
-                      value={user.role}
+                      value={user[0].role}
                     />
                   </div>
                 </div>
