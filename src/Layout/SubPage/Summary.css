@@ -1,0 +1,64 @@
+
+.card1 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color : blue;
+    transition: 0.3s;
+    width: 410px;
+    height: 190px;
+    border-radius: 5px;
+    position: relative;
+    left:75%;
+    
+  }
+  .card1 h2 {
+    position: relative;
+    left: 385px;
+    top: 125px;}
+  
+  .card1:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .card2 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color : blue;
+    transition: 0.3s;
+    width: 410px;
+    height: 190px;
+    border-radius: 5px blue;
+    position: relative;
+    left:75%;
+    top: 55px;
+    
+  }
+  
+  .card2:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .card2 h2 {
+    position: relative;
+    left: 385px;
+    top: 125px;
+  }
+
+  .card3 {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color : blue;
+    transition: 0.3s;
+    width: 410px;
+    height: 190px;
+    border-radius: 5px blue;
+    position: relative;
+    left:75%;
+    top: 110px;
+    
+  }
+  .card3 h2 {
+    position: relative;
+    left: 385px;
+    top: 125px;
+  }
+  
+  .card3:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }

@@ -1,10 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
+import "./homePage.css";
 
 import GetSummary from './SubPage/Getsummary'
 import AllTickets from "./SubPage/AllTickets";
+import { Slidebar } from "../Components/Slidebar";
+
 
 export const Homepage = () => {
   const [email, setEmail] = useState("");
@@ -25,13 +28,13 @@ export const Homepage = () => {
   }, []);
 
   return (
-    <div className="container mt-5">
-      <h1 className="title">Welcome {email}</h1>
-      <div>
-        <GetSummary/>
+    <div className="layout">
+      <div className="sidebar">
+        <Slidebar/>
       </div>
-      <div>
-        <AllTickets/>
+      <div className="body">
+      <h1 className="title">Welcome <Link to='/user'>{email}</Link></h1>
+        <GetSummary/>
       </div>
     </div>
   );

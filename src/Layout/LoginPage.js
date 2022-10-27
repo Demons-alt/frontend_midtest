@@ -59,10 +59,11 @@ export const LoginPage = () => {
                   <label className="label">pasword</label>
                   <div className="controls">
                     <input
-                      type="text"
+                      type="password"
                       className="input"
                       placeholder="*********"
                       required
+
                       value={pasword}
                       onChange={(e) => setPassword(e.target.value)}
                     />
